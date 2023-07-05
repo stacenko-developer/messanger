@@ -24,6 +24,7 @@ public class UserService implements IUserService {
     }
 
     public List<User> getAllUsers() throws Exception {
+
         log.info("Call Method of UserService: getAllUsers()");
 
         List<User> result = userRepository.findAll();

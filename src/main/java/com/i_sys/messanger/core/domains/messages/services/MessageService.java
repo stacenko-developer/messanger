@@ -10,6 +10,8 @@ import com.i_sys.messanger.web.exceptions.ValidationException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -30,6 +32,11 @@ public class MessageService implements IMessageService {
 
     public List<Message> getAllMessages() throws Exception {
         log.info("Call Method of MessageService: getAllMessages()");
+
+        String currentUser = SecurityContextHolder
+                .getContext()
+                .getAuthentication()
+                .getName();
 
         List<Message> result = messageRepository.findAll();
 

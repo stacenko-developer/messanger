@@ -27,6 +27,9 @@ public class UserController {
 
     @GetMapping
     public List<UserDtoGet> getAllUsers() throws Exception {
+
+
+
         log.info("Call method of UserController: getAllUsers()");
         List<UserDtoGet> result = new ArrayList<>();
 
