@@ -8,5 +8,5 @@ import java.util.UUID;
 
 @Repository
 public interface IMessageRepository extends JpaRepository<Message, UUID> {
-    Message findByIdAndRecipientId(UUID id, UUID recipientId);
+
 }

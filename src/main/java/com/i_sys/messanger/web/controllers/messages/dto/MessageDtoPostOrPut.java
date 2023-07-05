@@ -5,5 +5,4 @@ import java.util.UUID;
 public class MessageDtoPostOrPut {
     public String text;
     public UUID senderId;
-    public UUID recipientId;
 }

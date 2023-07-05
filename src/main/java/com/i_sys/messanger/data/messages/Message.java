@@ -24,14 +24,9 @@ public class Message extends BaseEntity {
     @JoinColumn(name = "sender_id", nullable = false)
     private User sender;
 
-    @ManyToOne
-    @JoinColumn(name = "recipient_id", nullable = false)
-    private User recipient;
-
-    public Message(String text, User sender, User recipient) {
+    public Message(String text, User sender) {
         this.text = text;
         this.sender = sender;
-        this.recipient = recipient;
     }
 
     public Message() {

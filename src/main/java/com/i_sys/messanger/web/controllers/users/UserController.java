@@ -10,6 +10,7 @@ import com.i_sys.messanger.web.controllers.messages.dto.MessageDtoPostOrPut;
 import com.i_sys.messanger.web.controllers.users.dto.UserDtoGet;
 import com.i_sys.messanger.web.controllers.users.dto.UserDtoPostOrPut;
 import com.i_sys.messanger.web.exceptions.ValidationException;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
@@ -28,6 +29,7 @@ public class UserController {
         this.userService = userService;
     }
 
+    @SecurityRequirement(name = "Bearer Authentication")
     @GetMapping
     public List<UserDtoGet> getAllUsers() throws Exception {
         log.info("Call method of UserController: getAllUsers()");
@@ -41,6 +43,7 @@ public class UserController {
         return result;
     }
 
+    @SecurityRequirement(name = "Bearer Authentication")
     @GetMapping({"id"})
     public UserDtoGet getUserById(@RequestParam UUID id) throws Exception {
         log.info("Call method of UserController: getUserById(" + id + ")");
@@ -54,6 +57,7 @@ public class UserController {
         return result;
     }
 
+    @SecurityRequirement(name = "Bearer Authentication")
     @PostMapping
     public User createUser(@RequestBody UserDtoPostOrPut user) throws Exception {
         log.info("Call method of UserController: createUser(" + user + ")");
@@ -68,6 +72,7 @@ public class UserController {
         return result;
     }
 
+    @SecurityRequirement(name = "Bearer Authentication")
     @PutMapping({"id"})
     public User updateUser(@RequestParam UUID id, @RequestBody UserDtoPostOrPut user) throws Exception {
         log.info("Call method of UserController: updateUser(" + id + "," + user + ")");
@@ -86,6 +91,7 @@ public class UserController {
         return result;
     }
 
+    @SecurityRequirement(name = "Bearer Authentication")
     @DeleteMapping({"id"})
     public void deleteUser(@RequestParam UUID id) throws Exception {
         log.info("Call method of UserController: deleteUser(" + id + ")");

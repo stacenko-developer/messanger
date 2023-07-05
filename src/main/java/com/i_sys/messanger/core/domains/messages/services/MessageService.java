@@ -64,13 +64,7 @@ public class MessageService implements IMessageService {
             throw new NotFoundException("The sender with the specified id was not found in the system!");
         }
 
-        User recipient = userRepository.findById(message.recipientId).orElse(null);
-
-        if (recipient == null) {
-            throw new NotFoundException("The recipient with the specified id was not found in the system!");
-        }
-
-        Message result = messageRepository.save(new Message(message.text, sender, recipient));
+        Message result = messageRepository.save(new Message(message.text, sender));
 
         log.info("Call Method of MessageService: createMessage(" + message + ") successfully completed");
 
@@ -92,15 +86,8 @@ public class MessageService implements IMessageService {
             throw new NotFoundException("The sender with the specified id was not found in the system!");
         }
 
-        User recipient = userRepository.findById(message.recipientId).orElse(null);
-
-        if (recipient == null) {
-            throw new NotFoundException("The recipient with the specified id was not found in the system!");
-        }
-
         entity.setText(message.text);
         entity.setSender(sender);
-        entity.setRecipient(recipient);
 
         Message result = messageRepository.save(entity);
 

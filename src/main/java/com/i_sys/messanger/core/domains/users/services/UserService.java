@@ -21,7 +21,6 @@ import java.util.UUID;
 public class UserService implements IUserService {
     private static final Logger log = LoggerFactory.getLogger(UserService.class.getName());
     private final IUserRepository userRepository;
-    //private BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
     @Autowired
     public UserService(IUserRepository userRepository) {
@@ -59,7 +58,7 @@ public class UserService implements IUserService {
             throw new ValidationException("User's data are null!");
         }
 
-        if (userRepository.findByLogin(user.login) != null) {
+        if (userRepository.findByLogin(user.login).orElse(null) != null) {
             throw new ValidationException("User with this login has already registered!");
         }
 
