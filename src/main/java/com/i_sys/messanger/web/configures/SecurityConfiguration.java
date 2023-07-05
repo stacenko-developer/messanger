@@ -2,7 +2,6 @@ package com.i_sys.messanger.web.configures;
 
 import com.i_sys.messanger.core.domains.security.jwt.JwtAuthenticationFilter;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationProvider;
@@ -28,8 +27,7 @@ public class SecurityConfiguration {
                 .authorizeHttpRequests()
                 .requestMatchers("api/v1/auth/**",
                         "/swagger-ui/**",
-                        "/v3/api-docs/**",
-                        "/javainuse-openapi/**")
+                        "/v3/api-docs/**")
                 .permitAll()
                 .anyRequest()
                 .authenticated()

@@ -6,8 +6,6 @@ import jakarta.persistence.*;
 import lombok.Data;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
-import java.util.ArrayList;
-
 @Data
 @Entity
 @Table(name = "message")

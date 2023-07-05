@@ -1,7 +1,6 @@
 package com.i_sys.messanger.core.domains.users.services;
 
 import com.i_sys.messanger.core.domains.users.repositories.IUserRepository;
-import com.i_sys.messanger.data.messages.Message;
 import com.i_sys.messanger.data.users.User;
 import com.i_sys.messanger.web.controllers.users.dto.UserDtoPostOrPut;
 import com.i_sys.messanger.web.exceptions.NotFoundException;
@@ -9,11 +8,8 @@ import com.i_sys.messanger.web.exceptions.ValidationException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 

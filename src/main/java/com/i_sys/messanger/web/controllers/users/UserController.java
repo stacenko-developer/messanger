@@ -1,12 +1,7 @@
 package com.i_sys.messanger.web.controllers.users;
 
-import com.i_sys.messanger.core.domains.messages.services.IMessageService;
 import com.i_sys.messanger.core.domains.users.services.IUserService;
-import com.i_sys.messanger.data.messages.Message;
 import com.i_sys.messanger.data.users.User;
-import com.i_sys.messanger.web.controllers.messages.MessageController;
-import com.i_sys.messanger.web.controllers.messages.dto.MessageDtoGet;
-import com.i_sys.messanger.web.controllers.messages.dto.MessageDtoPostOrPut;
 import com.i_sys.messanger.web.controllers.users.dto.UserDtoGet;
 import com.i_sys.messanger.web.controllers.users.dto.UserDtoPostOrPut;
 import com.i_sys.messanger.web.exceptions.ValidationException;
