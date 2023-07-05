@@ -21,6 +21,7 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("/user")
+@SecurityRequirement(name = "Bearer Authentication")
 public class UserController {
     private final IUserService userService;
     private static final Logger log = LoggerFactory.getLogger(UserController.class.getName());
@@ -29,7 +30,6 @@ public class UserController {
         this.userService = userService;
     }
 
-    @SecurityRequirement(name = "Bearer Authentication")
     @GetMapping
     public List<UserDtoGet> getAllUsers() throws Exception {
         log.info("Call method of UserController: getAllUsers()");
@@ -43,7 +43,6 @@ public class UserController {
         return result;
     }
 
-    @SecurityRequirement(name = "Bearer Authentication")
     @GetMapping({"id"})
     public UserDtoGet getUserById(@RequestParam UUID id) throws Exception {
         log.info("Call method of UserController: getUserById(" + id + ")");
@@ -57,7 +56,6 @@ public class UserController {
         return result;
     }
 
-    @SecurityRequirement(name = "Bearer Authentication")
     @PostMapping
     public User createUser(@RequestBody UserDtoPostOrPut user) throws Exception {
         log.info("Call method of UserController: createUser(" + user + ")");
@@ -72,7 +70,6 @@ public class UserController {
         return result;
     }
 
-    @SecurityRequirement(name = "Bearer Authentication")
     @PutMapping({"id"})
     public User updateUser(@RequestParam UUID id, @RequestBody UserDtoPostOrPut user) throws Exception {
         log.info("Call method of UserController: updateUser(" + id + "," + user + ")");
@@ -91,7 +88,6 @@ public class UserController {
         return result;
     }
 
-    @SecurityRequirement(name = "Bearer Authentication")
     @DeleteMapping({"id"})
     public void deleteUser(@RequestParam UUID id) throws Exception {
         log.info("Call method of UserController: deleteUser(" + id + ")");

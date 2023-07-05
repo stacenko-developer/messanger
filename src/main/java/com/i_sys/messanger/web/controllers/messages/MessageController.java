@@ -5,6 +5,7 @@ import com.i_sys.messanger.data.messages.Message;
 import com.i_sys.messanger.web.controllers.messages.dto.MessageDtoGet;
 import com.i_sys.messanger.web.controllers.messages.dto.MessageDtoPostOrPut;
 import com.i_sys.messanger.web.exceptions.ValidationException;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
@@ -15,6 +16,7 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("/message")
+@SecurityRequirement(name = "Bearer Authentication")
 public class MessageController {
     private final IMessageService messageService;
     private static final Logger log = LoggerFactory.getLogger(MessageController.class.getName());
